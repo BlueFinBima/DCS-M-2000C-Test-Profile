@@ -1,0 +1,6 @@
+./temp/
+M-2000C_V2/Helios/Profiles/*.bak
+M-2000C_V2/Helios/Profiles/*.hply
+*.hply
+*.bak
+.github/workflows/BuildProfilePackageOld.yml

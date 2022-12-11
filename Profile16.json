@@ -1,0 +1,40 @@
+{
+	"Authors": [
+			"_Author"
+		],
+	"License":	"GPL V3",
+	"Aicraft":	"_Vehicle",
+	"Version":	"_ProfileVersionNumber",
+	"Description":	"Helios Asset Pack for _Vehicle",
+	"Requirements":	"None",
+	"Repository":	"_Repository",
+	"VersionsRequired": [
+		{
+			"Product":	"Helios",
+			"Minimum":	"_MinimumReleaseLevel",
+			"Maximum":	null
+		}
+	],
+    "Choices": [
+        {
+			"Message": "Select the required options",
+            "Options": [
+                {
+					"Version":	"_ProfileVersionNumber Vehicle Asset Pack",
+					"AspectRatio": "4:3",
+					"NativeResolution": "800x600",
+                    "Description": "Aicraft:\t\t_Vehicle _ProfileVersionNumber\t\nRequirements:\tHelios _MinimumReleaseLevel or above\nDownload:\t_Repository\nAspect Ratio:\t4:3\nDefault Size:\t800x600\nRelease Date:\t_ReleaseDate",
+                    "Excludes": [
+                    ],
+					"VersionsRequired": [
+											{
+												"Product":	"Helios", "Minimum":	"_MinimumReleaseLevel",
+												"Maximum":	null
+											}
+										],
+					"Repository":	"_Repository"
+                }
+				]
+        }
+    ]
+}
