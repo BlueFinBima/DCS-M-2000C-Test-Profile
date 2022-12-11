@@ -5,7 +5,7 @@
 	"License":	"GPL V3",
 	"Aicraft":	"_Vehicle",
 	"Version":	"_ProfileVersionNumber",
-	"Description":	"Helios Asset Pack for _Vehicle",
+	"Description":	"M-2000C Functional Test Profile",
 	"Requirements":	"None",
 	"Repository":	"_Repository",
 	"VersionsRequired": [
@@ -21,8 +21,8 @@
             "Options": [
                 {
 					"Version":	"_ProfileVersionNumber Vehicle Asset Pack",
-					"AspectRatio": "4:3",
-					"NativeResolution": "800x600",
+					"AspectRatio": "16:9",
+					"NativeResolution": "1920x1080",
                     "Description": "Aicraft:\t\t_Vehicle _ProfileVersionNumber\t\nRequirements:\tHelios _MinimumReleaseLevel or above\nDownload:\t_Repository\nAspect Ratio:\t4:3\nDefault Size:\t800x600\nRelease Date:\t_ReleaseDate",
                     "Excludes": [
                     ],

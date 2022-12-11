@@ -4,7 +4,7 @@
   <Monitors>
     <Monitor>
       <Location>0,0</Location>
-      <Size>2304,1440</Size>
+      <Size>1920,1080</Size>
       <Hidden>False</Hidden>
       <Orientation>DMDO_DEFAULT</Orientation>
       <AlwaysOnTop>True</AlwaysOnTop>

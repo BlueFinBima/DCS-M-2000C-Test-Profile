@@ -18,7 +18,7 @@ env:
   VEHICLE: M-2000C
   VEHICLECOMMONNAME: M-2000C
   MINHELIOSRELEASE: 1.6.5500.0000
-  PROFILENAME: Delete_Me_(Asset_Pack_
+  PROFILENAME: M-2000C Functional Test
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -38,6 +38,7 @@ jobs:
         run: |
           echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
           echo "date=$(date +'%d-%b-%Y')" >> $GITHUB_OUTPUT
+          echo "actor=${GITHUB_ACTOR}" >> $GITHUB_OUTPUT
       - name: Bump version and push 
         id: bump_tag
         uses: anothrNick/github-tag-action@1.52.0
@@ -56,29 +57,29 @@ jobs:
           mkdir -p output
           smallTag=$(echo ${{ steps.bump_tag.outputs.tag }} | cut -c1-5)
           echo 'Small Tag= '$smallTag
-          sed -i -- 's#_ProfileVersionNumber#'"V ${{ steps.bump_tag.outputs.tag }}"'#g' '${{ env.VEHICLE }}/Helios/Profiles/Welcome.hpf'
-          sed -i -- 's#_Vehicle#'"${{ env.VEHICLE }}"'#g' '${{ env.VEHICLE }}/Helios/Profiles/Welcome.hpf'
-          sed -i -- 's#_CurrentDate#'"${{ steps.vars.outputs.date }}"'#g' '${{ env.VEHICLE }}/Helios/Profiles/Welcome.hpf'
-          mv '${{ env.VEHICLE }}/Helios/Profiles/Welcome.hpf' '${{ env.VEHICLE }}/Helios/Profiles/${{ env.PROFILENAME }}${{ env.VEHICLE }})_'$smallTag'.hpf'
+          sed -i -- 's#_ProfileVersionNumber#'"V ${{ steps.bump_tag.outputs.tag }}"'#g' '${{ env.VEHICLE }}/Helios/Profiles/M-2000C Functional Test.hpf'
+          sed -i -- 's#_Vehicle#'"${{ env.VEHICLE }}"'#g' '${{ env.VEHICLE }}/Helios/Profiles/M-2000C Functional Test.hpf'
+          sed -i -- 's#_CurrentDate#'"${{ steps.vars.outputs.date }}"'#g' '${{ env.VEHICLE }}/Helios/Profiles/M-2000C Functional Test.hpf'
+          mv '${{ env.VEHICLE }}/Helios/Profiles/M-2000C Functional Test.hpf' '${{ env.VEHICLE }}/Helios/Profiles/${{ env.PROFILENAME }} ${{ steps.bump_tag.outputs.actor }} ${{ steps.bump_tag.outputs.tag }}.hpf'
           echo Substituting info in the Profile16.json manifest
           sed -i -- 's/_MinimumReleaseLevel/${{ env.MINHELIOSRELEASE }}/g' Profile16.json
           sed -i -- 's/_ReleaseDate/'"$(date "+%d %B %Y")"'/g' Profile16.json
           sed -i -- 's/_ProfileVersionNumber/'"V${{ steps.bump_tag.outputs.tag }}"'/g' Profile16.json
           sed -i -- 's/_Vehicle/'"${{ env.VEHICLE }}"'/g' Profile16.json
           sed -i -- 's#_Repository#'"${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/releases"'#g' Profile16.json
-          #sed -i -- 's#_Author#'"${GITHUB_ACTOR}"'#g' Profile16.json
-          sed -i -- 's#_Author#Helios Virtual Cockpit#g' Profile16.json
-          sed -i -- 's/_Vehicle/'"${{ env.VEHICLE }}"'/g' '${{ env.VEHICLECOMMONNAME }} - About this pack.md'
-          sed -i -- 's#_ProfileVersionNumber#'"V ${{ steps.bump_tag.outputs.tag }}"'#g' '${{ env.VEHICLECOMMONNAME }} - About this pack.md'
-          sed -i -- 's#_ProjectURL#'"${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}"'#g' '${{ env.VEHICLECOMMONNAME }} - About this pack.md'
-          sed -i -- 's#_Repository#'"${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/releases"'#g' '${{ env.VEHICLECOMMONNAME }} - About this pack.md'
-          sed -i -- 's#_commit#'"${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/commit/${GITHUB_SHA}"'#g' '${{ env.VEHICLECOMMONNAME }} - About this pack.md'
+          sed -i -- 's#_Author#'"${GITHUB_ACTOR}"'#g' Profile16.json
+          #sed -i -- 's#_Author#Helios Virtual Cockpit#g' Profile16.json
+          sed -i -- 's/_Vehicle/'"${{ env.VEHICLE }}"'/g' '${{ env.VEHICLECOMMONNAME }} Test - About this profile.md'
+          sed -i -- 's#_ProfileVersionNumber#'"V ${{ steps.bump_tag.outputs.tag }}"'#g' '${{ env.VEHICLECOMMONNAME }} Test - About this profile.md'
+          sed -i -- 's#_ProjectURL#'"${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}"'#g' '${{ env.VEHICLECOMMONNAME }} Test - About this profile.md'
+          sed -i -- 's#_Repository#'"${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/releases"'#g' '${{ env.VEHICLECOMMONNAME }} Test - About this profile.md'
+          sed -i -- 's#_commit#'"${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/commit/${GITHUB_SHA}"'#g' '${{ env.VEHICLECOMMONNAME }} Test - About this profile.md'
       - name: Package Files
         run: |
           mv ./${{ env.VEHICLE }}/Helios .
           zip -r output/${{ env.VEHICLE }}_V${{ steps.bump_tag.outputs.tag }}.helios16 ./Profile16.json ./LICENSE ./*.md ./Helios/ -x ".git/*" ".github/*" "./Helios/Profiles/*.bak" "./Helios/Profiles/*.hply"
       - uses: actions/upload-artifact@v3
         with:
-          name: ${{ env.VEHICLECOMMONNAME }} V${{ steps.bump_tag.outputs.tag }} helios16 asset package
+          name: ${{ env.VEHICLECOMMONNAME }} Test V${{ steps.bump_tag.outputs.tag }} helios16 profile package
           path: output/${{ env.VEHICLE }}_V${{ steps.bump_tag.outputs.tag }}.helios16
           retention-days: 7
