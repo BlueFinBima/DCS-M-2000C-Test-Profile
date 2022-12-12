@@ -20,10 +20,10 @@
 			"Message": "Select the required options",
             "Options": [
                 {
-					"Version":	"_ProfileVersionNumber Vehicle Asset Pack",
+					"Version":	"_ProfileVersionNumber Functional Test Profile",
 					"AspectRatio": "16:9",
 					"NativeResolution": "1920x1080",
-                    "Description": "Aicraft:\t\t_Vehicle _ProfileVersionNumber\t\nRequirements:\tHelios _MinimumReleaseLevel or above\nDownload:\t_Repository\nAspect Ratio:\t4:3\nDefault Size:\t800x600\nRelease Date:\t_ReleaseDate",
+                    "Description": "Aicraft:\t\t_Vehicle _ProfileVersionNumber\t\nRequirements:\tHelios _MinimumReleaseLevel or above\nDownload:\t_Repository\nAspect Ratio:\t16:9\nDefault Size:\t1920x1080\nRelease Date:\t_ReleaseDate",
                     "Excludes": [
                     ],
 					"VersionsRequired": [
