@@ -3740,6 +3740,16 @@
       <TriggerValue />
     </Binding>
     <Binding BypassCascadingTriggers="True">
+      <Trigger Source="Interface;;Helios.M2000C;DCS M2000C" Name="Radio Panel.UHF Upper Comm Information.changed" />
+      <Action Target="Visual;Monitor 1.Panel 1.1080p Panel 1.Radio Repeater.Radio Repeater Display_UHF Upper Comm Information;Helios.Base.TextDisplay;Radio Repeater Display_UHF Upper Comm Information" Name="Radio Repeater Display_UHF Upper Comm Information.set.TextDisplay" />
+      <TriggerValue />
+    </Binding>
+    <Binding BypassCascadingTriggers="True">
+      <Trigger Source="Interface;;Helios.M2000C;DCS M2000C" Name="Radio Panel.VHF Lower Comm Information.changed" />
+      <Action Target="Visual;Monitor 1.Panel 1.1080p Panel 1.Radio Repeater.Radio Repeater Display_VHF Lower Comm Information;Helios.Base.TextDisplay;Radio Repeater Display_VHF Lower Comm Information" Name="Radio Repeater Display_VHF Lower Comm Information.set.TextDisplay" />
+      <TriggerValue />
+    </Binding>
+    <Binding BypassCascadingTriggers="True">
       <Trigger Source="Interface;;Helios.M2000C;DCS M2000C" Name="VHF Radio Panel.VHF Comm Information.changed" />
       <Action Target="Visual;Monitor 1.Panel 1.1080p Panel 1.VHF Radio Panel V2.VHF Radio_VHF Comm Information;Helios.Base.TextDisplay;VHF Radio_VHF Comm Information" Name="VHF Radio_VHF Comm Information.set.TextDisplay" />
       <TriggerValue />
