@@ -17,7 +17,7 @@ on:
 env:
   VEHICLE: M-2000C
   VEHICLECOMMONNAME: M-2000C
-  MINHELIOSRELEASE: 1.6.5500.0000
+  MINHELIOSRELEASE: 1.6.5501.0000
   PROFILENAME: M-2000C Functional Test
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
